@@ -1,70 +1,33 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String CompanyName;
-    private String Street;
-    private String City;
+public class Supplier extends Company{
     @OneToMany
-    private Set<Product> products;
+    private ArrayList<Product> products = new ArrayList<Product>();
+    private String bankAccount;
 
-    public int getId() {
-        return id;
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
     }
 
-    public String getCompanyName() {
-        return CompanyName;
+    public String getBankAccount() {
+        return bankAccount;
     }
 
-    public void setCompanyName(String companyName) {
-        CompanyName = companyName;
-    }
-
-    public String getStreet() {
-        return Street;
-    }
-
-    public void setStreet(String street) {
-        Street = street;
-    }
-
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String city) {
-        City = city;
-    }
-
-    public Supplier(String companyName, String street, String city) {
-        CompanyName = companyName;
-        Street = street;
-        City = city;
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public Supplier() {
 
     }
-
-
-
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
-
-
 }
