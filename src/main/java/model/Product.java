@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 public class Product {
@@ -20,6 +21,20 @@ public class Product {
     private String productName;
 
     private Integer unitsInStock;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    private BigDecimal unitPrice;
 
     public String getProductName() {
 

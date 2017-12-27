@@ -2,13 +2,13 @@ package model;
 
 import org.hibernate.annotations.ManyToAny;
 
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
-
-public class Transaction {
-
-    private int transactionNumber;
+@Entity
+public class Tansaction {
+    @Id
+    @GeneratedValue()
+    private int id;
     private int quantity;
 
     @ManyToOne
@@ -17,23 +17,14 @@ public class Transaction {
     @ManyToOne
     private Customer customer;
 
-    public Transaction(int transactionNumber, int quantity, Product product, Customer customer) {
-        this.transactionNumber = transactionNumber;
+    public Tansaction(int quantity, Product product, Customer customer) {
         this.quantity = quantity;
         this.product = product;
         this.customer = customer;
     }
 
-    public Transaction() {
+    public Tansaction() {
 
-    }
-
-    public int getTransactionNumber() {
-        return transactionNumber;
-    }
-
-    public void setTransactionNumber(int transactionNumber) {
-        this.transactionNumber = transactionNumber;
     }
 
     public int getQuantity() {

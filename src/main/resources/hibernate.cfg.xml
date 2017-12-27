@@ -11,6 +11,11 @@
 
         <mapping class = "model.Product"></mapping>
         <mapping class = "model.Supplier"></mapping>
+        <mapping class = "model.Tansaction"></mapping>
+        <mapping class = "model.Company"></mapping>
+        <mapping class = "model.Customer"></mapping>
+        <mapping class = "model.Address"></mapping>
+
 
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->

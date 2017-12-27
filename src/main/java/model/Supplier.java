@@ -2,20 +2,21 @@ package model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
 public class Supplier extends Company{
     @OneToMany
-    private ArrayList<Product> products = new ArrayList<Product>();
+    private Set<Product> products = new HashSet<>();
     private String bankAccount;
 
-    public ArrayList<Product> getProducts() {
+    public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(Set<Product> products) {
         this.products = products;
     }
 

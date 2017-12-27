@@ -1,17 +1,39 @@
 package app;
 
+
+import dao.CompanyDao;
 import dao.MySessionFactory;
+import dao.ProductsDao;
+import dao.TransactionsDao;
+import model.Company;
+import model.Customer;
 import model.Product;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import model.Supplier;
+import spark.ModelAndView;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+
+import static spark.Spark.*;
 
 public class App {
+
 public static void main(String[] args){
-    final Session session = MySessionFactory.getSession();
-    Transaction thx = session.beginTransaction();
-    session.save(new Product("asdas",2));
-    thx.commit();
-    session.close();
+
+
+    port(8108);
+    org.apache.log4j.BasicConfigurator.configure();
+    staticFiles.externalLocation(System.getProperty("user.dir") + "/src/main/resources/public");
+
+
+    get("/", (req, res) -> {
+        res.redirect("/index.html");
+        return null;
+    });
+
+
+
+
 
 }
 }
